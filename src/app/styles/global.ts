@@ -13,30 +13,32 @@ export default createGlobalStyle`
       height: 100%;
     }
 
-    body{}
-
     hr {
       border: none;
       height: 1px;
     }
 
     ul {
-        list-style: none;
+      list-style: none;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    body, input, button, textarea, select {
+      font-family: Poppins;
     }
 
     h1, h2, h3, h4, h5, h6{
+      font-family: Archivo;
       margin-block-start: 0;
       margin-block-end: 0;
-      font-family: Ubuntu;
     }
 
     legend{
       padding-inline-start: 0;
       padding-inline-end: 0;
-    }
-
-    button {
-      cursor: pointer;
     }
 
     fieldset{

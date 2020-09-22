@@ -1,12 +1,12 @@
 import React from 'react';
 import { Container } from './styles';
 
-const Users = () => {
+const Details = () => {
   return (
     <Container>
-      Users
+      a
     </Container>
   )
 }
 
-export default Users;
+export default Details;
