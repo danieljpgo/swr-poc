@@ -1,8 +1,8 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import { BrowserRouter } from 'react-router-dom';
 import GlobalStyles from './styles/global';
 import theme from './styles/theme';
-import { BrowserRouter } from 'react-router-dom';
 import Routes from './routes';
 
 const App = () => (
@@ -13,6 +13,5 @@ const App = () => (
     </BrowserRouter>
   </ThemeProvider>
 );
-
 
 export default App;
