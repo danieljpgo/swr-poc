@@ -1,13 +1,13 @@
 {
   "users": [
     {
-      "id": 1,
+      "email": "teste@gmail.com",
       "name": "Daniel Jorge",
-      "email": "teste@gmail.com"
+      "id": 1
     },
     {
-      "name": "Vera Lucia",
       "email": "vera@gmail.com",
+      "name": "Vera Lucia Arroz",
       "id": 2
     },
     {

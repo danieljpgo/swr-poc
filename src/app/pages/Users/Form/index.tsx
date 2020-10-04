@@ -1,8 +1,9 @@
-import React, { useState, FormEvent, ChangeEvent } from 'react';
+import React, { useState, FormEvent, ChangeEvent, useEffect } from 'react';
 import { User } from '../../../common/types/user';
 import { Container } from './styles';
 
 interface Props {
+  user: User;
   onSubmit: (user: User) => void;
 }
 
@@ -12,8 +13,12 @@ const defaultUser: User = {
 }
 
 const Form = (props: Props) => {
-  const { onSubmit } = props;
+  const { user, onSubmit } = props;
   const [form, setForm] = useState<User>(defaultUser);
+
+  useEffect(() => {
+    if (user) setForm(user)
+  }, [user])
 
   function handleSubmit(event: FormEvent<HTMLFormElement>, user: User) {
     event.preventDefault();

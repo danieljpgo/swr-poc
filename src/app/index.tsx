@@ -13,7 +13,7 @@ const App = () => (
       revalidateOnFocus: true,
       revalidateOnReconnect: true,
       shouldRetryOnError: true,
-      refreshInterval: 60000,
+      refreshInterval: 0,
       errorRetryInterval: 5000,
       errorRetryCount: 3
     }}>
