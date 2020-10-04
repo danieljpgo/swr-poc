@@ -1,22 +1,34 @@
 import React from 'react';
-import { Container } from './styles';
-import axios from 'axios';
-import useSWR from 'swr';
-
-const fetcher = async (endpoint: string) => {
-  const response = await axios.get(endpoint)
-
-  return response;
-}
+import useFetch from '../../common/utils/hooks/useFetch';
+import { User } from '../../common/types/user';
+import { Container, Content } from './styles';
+import { useHistory, useParams } from 'react-router-dom';
 
 const Details = () => {
-  const { data } = useSWR('http://localhost:3000/users/1', fetcher)
+  const history = useHistory();
+  const params = useParams<{ id: string }>();
+  const { data } = useFetch<User>(`users/${params.id}`);
 
-  console.log(data);
+  function handleGoBack() {
+    history.goBack();
+  }
 
   return (
     <Container>
-      a
+      <Content>
+        <button
+          type="button"
+          onClick={() => handleGoBack()}>
+          back
+      </button>
+        {data ?
+          (<div>
+            <h4>{data?.name}</h4>
+            <div>{data?.email}</div>
+          </div>) :
+          (<h3>Loading ...</h3>)
+        }
+      </Content>
     </Container>
   )
 };

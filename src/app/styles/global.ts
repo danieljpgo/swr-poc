@@ -7,12 +7,18 @@ export default createGlobalStyle`
       box-sizing: border-box;
     }
 
-    #root, body, html {
+    body {
       height: 100%;
+    }
+
+    #root {
+      max-width: 960px;
+      margin: 0 auto;
     }
 
     hr {
       border: none;
+      background-color: #76767652;
       height: 1px;
     }
 
