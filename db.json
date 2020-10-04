@@ -6,39 +6,19 @@
       "email": "teste@gmail.com"
     },
     {
-      "name": "Teste",
-      "email": "teste@gmail.com",
+      "name": "Vera Lucia",
+      "email": "vera@gmail.com",
       "id": 2
     },
     {
-      "name": "Teste",
+      "name": "daniel teste",
       "email": "teste@gmail.com",
       "id": 3
     },
     {
-      "name": "teste",
-      "email": "teste2@gmail.com",
+      "name": "Tetset",
+      "email": "jadsh@gmail.com",
       "id": 4
-    },
-    {
-      "name": "",
-      "email": "",
-      "id": 5
-    },
-    {
-      "name": "2123",
-      "email": "daniel.gonzaga@gmail.com",
-      "id": 6
-    },
-    {
-      "name": "teste",
-      "email": "testet@gmail.com",
-      "id": 7
-    },
-    {
-      "name": "teste@1",
-      "email": "testex@gmail.com",
-      "id": 8
     }
   ]
 }

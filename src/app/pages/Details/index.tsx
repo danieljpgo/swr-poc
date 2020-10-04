@@ -18,14 +18,16 @@ const Details = () => {
       <Content>
         <button
           type="button"
-          onClick={() => handleGoBack()}>
+          onClick={() => handleGoBack()}
+        >
           back
       </button>
         {data ?
           (<div>
             <h4>{data?.name}</h4>
             <div>{data?.email}</div>
-          </div>) :
+          </div>
+          ) :
           (<h3>Loading ...</h3>)
         }
       </Content>

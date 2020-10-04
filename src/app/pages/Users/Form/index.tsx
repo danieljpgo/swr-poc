@@ -32,8 +32,8 @@ const Form = (props: Props) => {
     <Container onSubmit={(e) => handleSubmit(e, form)}>
       <div>
         <label
-          id="name"
-          htmlFor="name">
+          htmlFor="name"
+        >
           Name
         </label>
         <input
@@ -46,8 +46,8 @@ const Form = (props: Props) => {
       </div>
       <div>
         <label
-          id="email"
-          htmlFor="email">
+          htmlFor="email"
+        >
           Email
         </label>
         <input

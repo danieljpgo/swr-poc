@@ -1,10 +1,10 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter } from 'react-router-dom';
+import { SWRConfig } from 'swr';
 import GlobalStyles from './styles/global';
 import theme from './styles/theme';
 import Routes from './routes';
-import { SWRConfig } from 'swr';
 
 const App = () => (
   <ThemeProvider theme={theme}>
