@@ -5,34 +5,41 @@ import api from '../../common/services/api';
 import { User } from '../../common/types/user';
 import Form from './Form';
 import { Container, Content } from './styles';
+import ErrorMessage from '../../common/components/ErrorMessage';
+import LoadingMessage from '../../common/components/LoadingMessage';
 
 const Users = () => {
-  const { data, mutate } = useFetch<User[]>('users');
+  const {
+    data,
+    isError,
+    isLoading,
+    mutate: mutateUsers
+  } = useFetch<User[]>('users');
 
   async function handleSubmit(user: User) {
-    /* 
-     * First add the new user to the global cache
-     * with temporary id "0" and shouldRevalidate "false",
-     * because the call will be made in the api
-     */
-    mutate((prev) => [...prev, { ...user, id: 0 }], false)
+    // Temporary id to allow adding multiple users,
+    // before making the POST Request to add user
+    const tempId = Math.floor(Math.random() * -20000)
+
+    // First add the new user to the global cache
+    // with tempId and shouldRevalidate "false"
+    // (because the call will be made manual)
+    mutateUsers((prev) => [...prev, { ...user, id: tempId }], false)
 
     const newUser = await api
       .post<User>('/users', user)
       .then((response) => response.data)
       .catch((error) => alert(error));
 
-    /*
-     * After making the call on the api, the new user's id
-     * will be updated as the api returned on the global cache
-     */
+    // After making the call on the api, the new user's id
+    // will be updated on the global cache as the api returned 
     if (newUser) {
-      mutate((prev) => prev.map((user) => user.id === 0
+      mutateUsers((prev) => prev.map((user) => user.id === tempId
         ? { ...user, id: newUser.id }
         : user
       ), false)
     } else {
-      mutate((prev) => prev.filter((user) => user.id !== 0), false)
+      mutateUsers((prev) => prev.filter((user) => user.id !== tempId), false)
     }
   }
 
@@ -42,8 +49,8 @@ const Users = () => {
         <Form onSubmit={(newUser) => handleSubmit(newUser)} />
         <hr />
         <ul>
-          {data
-            ? data.map((user) => (
+          {!isLoading
+            ? data && data.map((user) => (
               <li key={user.id}>
                 <Link
                   to={`/users/${user.id}`}
@@ -51,9 +58,12 @@ const Users = () => {
                 >
                   {user.name}
                 </Link>
+                {user.id && (user.id < 0) && <sub style={{ verticalAlign: "super" }}>(saving)</sub>}
               </li>))
-            : <li><h3>Loading ...</h3></li>}
+            : (<li><LoadingMessage /></li>)
+          }
         </ul>
+        {isError && (<ErrorMessage />)}
       </Content>
     </Container>
   )

@@ -6,14 +6,22 @@ const fetcher = (endpoint: string) => api
   .then((response) => response.data);
 
 const useFetch = <Data = any, Error = any>(url: string) => {
-  const { data, error, mutate } = useSWR<Data, Error>(url, fetcher, {
+  const {
+    data,
+    error,
+    isValidating,
+    mutate,
+    revalidate
+  } = useSWR<Data, Error>(url, fetcher);
 
-  });
-
-  return { data, error, mutate };
-
+  return {
+    data,
+    isError: error,
+    isLoading: !error && !data,
+    isValidating,
+    mutate,
+    revalidate,
+  };
 }
 
 export default useFetch;
-
-// isValidating, revalidate 
