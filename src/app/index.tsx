@@ -10,7 +10,7 @@ const App = () => (
   <ThemeProvider theme={theme}>
     <GlobalStyles />
     <SWRConfig value={{
-      revalidateOnFocus: true,
+      revalidateOnFocus: false,
       revalidateOnReconnect: true,
       shouldRetryOnError: true,
       refreshInterval: 0,

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.form`
 display: flex;
-gap: ${(props) => props.theme.unit / 2}px;
+gap: ${(props) => props.theme.unit}px;
   > div {
     display: grid;
     gap: ${(props) => props.theme.unit / 2}px;

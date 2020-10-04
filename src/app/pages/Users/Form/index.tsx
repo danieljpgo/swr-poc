@@ -1,4 +1,9 @@
-import React, { useState, FormEvent, ChangeEvent, useEffect } from 'react';
+import React, {
+  useState,
+  FormEvent,
+  ChangeEvent,
+  useEffect
+} from 'react';
 import { User } from '../../../common/types/user';
 import { Container } from './styles';
 
@@ -17,7 +22,7 @@ const Form = (props: Props) => {
   const [form, setForm] = useState<User>(defaultUser);
 
   useEffect(() => {
-    if (user) setForm(user)
+    if (user) setForm(user);
   }, [user])
 
   function handleSubmit(event: FormEvent<HTMLFormElement>, user: User) {
@@ -36,9 +41,7 @@ const Form = (props: Props) => {
   return (
     <Container onSubmit={(e) => handleSubmit(e, form)}>
       <div>
-        <label
-          htmlFor="name"
-        >
+        <label htmlFor="name">
           Name
         </label>
         <input
@@ -50,9 +53,7 @@ const Form = (props: Props) => {
         />
       </div>
       <div>
-        <label
-          htmlFor="email"
-        >
+        <label htmlFor="email">
           Email
         </label>
         <input
@@ -63,7 +64,7 @@ const Form = (props: Props) => {
           onChange={(e) => handleInputChange(e)}
         />
       </div>
-      <button type="submit">
+      <button type="submit" disabled={!name || !email}>
         submit
       </button>
     </Container>
