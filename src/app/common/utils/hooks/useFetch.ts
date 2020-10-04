@@ -1,21 +1,19 @@
 import useSWR from 'swr';
 import api from '../../../common/services/api';
 
-const fetcher = async <Data,>(endpoint: string): Promise<Data> => {
-  const response = await api
-    .get<Data>(endpoint)
-    .then((response) => response.data)
-
-  return response;
-}
+const fetcher = (endpoint: string) => api
+  .get(endpoint)
+  .then((response) => response.data);
 
 const useFetch = <Data = any, Error = any>(url: string) => {
-  const { data, error } = useSWR<Data, Error>(url, fetcher)
+  const { data, error, mutate } = useSWR<Data, Error>(url, fetcher, {
 
-  return { data, error };
+  });
+
+  return { data, error, mutate };
 
 }
 
 export default useFetch;
 
-// isValidating, mutate, revalidate 
+// isValidating, revalidate 
