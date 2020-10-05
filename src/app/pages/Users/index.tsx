@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { mutate as mutateGlobal } from 'swr';
 import useFetch from '../../common/utils/hooks/useFetch';
 import { User } from '../../common/types/user';
 import LoadingMessage from '../../common/components/LoadingMessage';
@@ -25,7 +26,7 @@ const Users = () => {
   const [userSelected, setUserSelected] = useState<User>(defaultUser);
 
   async function handleEditUser(userEdit: User, usersList: User[]) {
-    const updateCachedUsers = ({ name, email, id }: User) => (
+    const updateCachedUser = ({ name, email, id }: User) => (
       mutateUsers((prev) => prev.map((user) => user.id === id
         ? { ...user, email, name }
         : user
@@ -34,21 +35,24 @@ const Users = () => {
 
     const { email, name, id } = userEdit;
 
-    // Add the new user information to the global cache
-    updateCachedUsers(userEdit);
+    // Update the user information from the "users" cache router
+    updateCachedUser(userEdit);
+    // Update/create user information from the "users/id" cache router
+    mutateGlobal(`users/${id}`, userEdit, false);
 
     const response = await api
       .put<User>(`/users/${id}`, { email, name })
       .then((response) => response.data)
       .catch((error) => alert(error));
 
-    // In case of error in the user edition, the information
-    // added in the cache must be removed and add the original
+    // In case of error in the PUT Request, the information added in
+    // the cache must be removed and add the original
     if (!response) {
       const userOriginal = usersList.find((user) => user.id === id);
 
       if (userOriginal) {
-        updateCachedUsers(userOriginal);
+        updateCachedUser(userOriginal);
+        mutateGlobal(`users/${id}`, userOriginal, false);
       }
     }
   }
@@ -56,12 +60,10 @@ const Users = () => {
   async function handleCreateUser(user: User) {
     // Temporary id to allow adding multiple users,
     // before making the POST Request to create user
-    const tempId = Math.floor(Math.random() * -20000);
+    const temporayId = Math.floor(Math.random() * -20000);
 
-    // Add the new user to the global cache
-    // with tempId and shouldRevalidate "false"
-    // (because the api call will be made manual)
-    mutateUsers((prev) => [...prev, { ...user, id: tempId }], false);
+    // Add the new user to the "users" cache router
+    mutateUsers((prev) => [...prev, { ...user, id: temporayId }], false);
 
     const newUser = await api
       .post<User>('/users', user)
@@ -71,14 +73,16 @@ const Users = () => {
     if (newUser) {
       // After making the call on the api, the new user's id
       // will be updated on the global cache as the api returned 
-      mutateUsers((prev) => prev.map((user) => user.id === tempId
+      mutateUsers((prev) => prev.map((user) => user.id === temporayId
         ? { ...user, id: newUser.id }
         : user
       ), false);
+      mutateGlobal(`users/${newUser.id}`, newUser, false);
+
     } else {
       // In case of error it will be removed from the cache
       mutateUsers((prev) => prev.filter((user) =>
-        user.id !== tempId
+        user.id !== temporayId
       ), false);
     }
   }
