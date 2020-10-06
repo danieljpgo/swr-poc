@@ -2,8 +2,23 @@
   "users": [
     {
       "email": "teste@gmail.com",
-      "name": "Daniel Jorge",
+      "name": "Daniel Jorge X y z",
       "id": 1
+    },
+    {
+      "name": "Daniel Jorge",
+      "email": "teste@gmail.com",
+      "id": 2
+    },
+    {
+      "name": "232",
+      "email": "2323@sdf.com",
+      "id": 3
+    },
+    {
+      "name": "kjbaskjb",
+      "email": "ljnsjnsd@gmail.com",
+      "id": 4
     }
   ]
 }

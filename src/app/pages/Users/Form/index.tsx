@@ -4,6 +4,8 @@ import React, {
   ChangeEvent,
   useEffect
 } from 'react';
+import Button from '../../../common/components/Button';
+import TextField from '../../../common/components/TextField';
 import { User } from '../../../common/types/user';
 import { Container } from './styles';
 
@@ -40,33 +42,25 @@ const Form = (props: Props) => {
 
   return (
     <Container onSubmit={(e) => handleSubmit(e, form)}>
-      <div>
-        <label htmlFor="name">
-          Name
-        </label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          value={name}
-          onChange={(e) => handleInputChange(e)}
-        />
-      </div>
-      <div>
-        <label htmlFor="email">
-          Email
-        </label>
-        <input
-          id="email"
-          type="email"
-          name="email"
-          value={email}
-          onChange={(e) => handleInputChange(e)}
-        />
-      </div>
-      <button type="submit" disabled={!name || !email}>
+      <TextField
+        id="name"
+        name="name"
+        type="text"
+        value={name}
+        onChange={(e) => handleInputChange(e)}
+      />
+      <TextField
+        id="email"
+        type="email"
+        name="email"
+        value={email}
+        onChange={(e) => handleInputChange(e)}
+      />
+      <Button
+        type="submit"
+        disabled={!name || !email}>
         submit
-      </button>
+      </Button>
     </Container>
   )
 }

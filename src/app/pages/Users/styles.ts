@@ -9,9 +9,4 @@ export const Container = styled.div`
 export const Content = styled.div`
   display: grid;
   gap: ${(props) => props.theme.unit}px;
-
-  ul {
-    justify-self: center;
-    text-align: center;
-  }
 `;

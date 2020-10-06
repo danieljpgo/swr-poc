@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { mutate as mutateGlobal } from 'swr';
-import useFetch from '../../common/utils/hooks/useFetch';
-import { User } from '../../common/types/user';
 import LoadingMessage from '../../common/components/LoadingMessage';
 import ErrorMessage from '../../common/components/ErrorMessage';
+import useFetch from '../../common/utils/hooks/useFetch';
+import { User } from '../../common/types/user';
 import api from '../../common/services/api';
-import { Container, Content } from './styles';
 import Form from './Form';
+import List from './List';
+import { Container, Content } from './styles';
 
 const defaultUser: User = {
   name: '',
@@ -19,7 +19,6 @@ const Users = () => {
     data,
     isError,
     isLoading,
-    isValidating,
     mutate: mutateUsers
   } = useFetch<User[]>('users');
 
@@ -103,38 +102,16 @@ const Users = () => {
     <Container>
       <Content>
         <Form
+          user={userSelected}
           onSubmit={(newUser) => handleSubmit(newUser, data)}
-          user={userSelected} />
-        <hr />
-        <ul>
-          {!isLoading
-            ? data && data.map((user) => (
-              <li
-                key={user.id}
-                style={user.id && user.id < 0 ? { cursor: 'progress' } : {}}
-              >
-                <Link
-                  to={`/users/${user.id}`}
-                  data-userid={user.id}
-                  style={user.id && user.id < 0 ? { pointerEvents: "none" } : {}}
-                >
-                  {user.name}
-                </Link>
-                {user.id && user.id < 0 &&
-                  <sub style={{ verticalAlign: "super" }}>(saving)</sub>
-                }
-                <button
-                  type="button"
-                  onClick={() => handleSelectUser(user)}
-                >
-                  edit
-                  </button>
-              </li>))
-            : (<li><LoadingMessage /></li>)
-          }
-        </ul>
-        {isError && (<ErrorMessage />)}
-        {isValidating && (<div>isValidating</div>)}
+        />
+        <List
+          users={!!data ? data : []}
+          onSelectUser={(user) => handleSelectUser(user)}
+        >
+          {isLoading && (<LoadingMessage />)}
+          {isError && (<ErrorMessage />)}
+        </List>
       </Content>
     </Container>
   )
