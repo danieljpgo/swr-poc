@@ -11,7 +11,7 @@ export const Container = styled.form`
       align-self: flex-end;
     }
 
-  @media(max-width: 920px) {
+  @media(max-width: 680px) {
     flex-wrap: wrap;
 
     > div{

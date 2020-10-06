@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  height: 100vh;
   display: grid;
-  place-items: center;
-  height: 100vh;  
+  align-content: center;
+  justify-content: center;
 `;
 
 export const Content = styled.div`

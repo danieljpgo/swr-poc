@@ -8,13 +8,13 @@ export default createGlobalStyle`
     }
 
     body {
-      height: 100%;
+      height: 100vh;
     }
 
     #root {
       max-width: 960px;
       margin: 0 auto;
-      height: 100vh;
+      padding:0 ${(props) => props.theme.unit * 1.5}px;
     }
 
     hr {

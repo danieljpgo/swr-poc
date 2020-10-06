@@ -1,14 +1,17 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  /* justify-content: center; */
   text-align: center;
   grid-auto-rows: min-content;
-  height: 30vh;
+  justify-self: center;
   ul{
-  overflow-y: auto;
+    height: 30vh;
+    overflow-y: auto;
     display: grid;
     gap: ${(props) => props.theme.unit / 2}px;
-    padding: ${(props) => props.theme.unit}px ${(props) => props.theme.unit / 2}px;
+    padding: ${(props) => props.theme.unit}px ${(props) => props.theme.unit * 0.75}px;
+  }
+  @media(max-width: 680px) {
+    justify-self: unset;
   }
 `;
