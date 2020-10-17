@@ -51,23 +51,21 @@
    <a href="#page_with_curl-license">License</a>
 </p>
 
-&nbsp;
-
-<div align="center">
+<h1 align="center">
    <img
       alt="SWR Preview"
       title="SWR Preview"
       src=".github/exemple.gif"
-      width="640px" />
-</div>
+   />
+</h1>
 
-#### :memo: Project
+## :memo: Project
 ... :construction: under construction :construction:
 
-#### :pushpin: Topics
+## :pushpin: Topics
 ... :construction: under construction :construction:
 
-#### :man_technologist: Technologies
+## :man_technologist: Technologies
 The main technologies used to develop the project were:
 - [React](https://reactjs.org/)
 - [SWR](https://swr.vercel.app/)
@@ -78,7 +76,7 @@ The main technologies used to develop the project were:
 This project was bootstrapped with:
 - [create-react-app](https://github.com/facebook/create-react-app)
 
-#### :runner: Getting Started
+## :runner: Getting Started
 First, make sure you have **[Node](https://nodejs.org/en/)** and **[Yarn](https://yarnpkg.com/)**, then clone the project with:
 ```
 git clone https://github.com/danieljpgo/swr-poc.git
@@ -97,7 +95,7 @@ In order to start the application, execute:
 yarn start
 ```
 
-#### :page_with_curl: License
+## :page_with_curl: License
 This project is under the [MIT license](https://github.com/danieljpgo/posts-motion/blob/master/LICENSE).
 <div>Released in 2020.</div>
 

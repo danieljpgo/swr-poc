@@ -2,7 +2,7 @@
   "users": [
     {
       "email": "lorem@gmail.com",
-      "name": "Lorem Ipsum A",
+      "name": "Lorem Ipsum AB",
       "id": 1
     },
     {
@@ -11,9 +11,14 @@
       "id": 2
     },
     {
-      "name": "Teste",
       "email": "teste@gmail.com",
+      "name": "Teste Teste",
       "id": 3
+    },
+    {
+      "name": "Teste 2",
+      "email": "teste2@gmail.com",
+      "id": 4
     }
   ]
 }
