@@ -7,6 +7,7 @@ interface ContainerProps {
 export const Container = styled.li<ContainerProps>`
   display: flex;
   border: solid 1px;
+  height: min-content;
   border-radius: ${(props) => props.theme.unit / 4}px;
   padding: ${(props) => props.theme.unit / 2}px;
   min-width: 280px;

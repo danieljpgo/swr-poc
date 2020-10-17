@@ -51,21 +51,23 @@
    <a href="#page_with_curl-license">License</a>
 </p>
 
+&nbsp;
+
 <div align="center">
    <img
-      alt="Post Motion"
-      title="Post Motion"
-      src=".github/code.png"
+      alt="SWR Preview"
+      title="SWR Preview"
+      src=".github/exemple.gif"
       width="640px" />
 </div>
 
-### :memo: Project
+#### :memo: Project
 ... :construction: under construction :construction:
 
-### :pushpin: Topics
+#### :pushpin: Topics
 ... :construction: under construction :construction:
 
-### :man_technologist: Technologies
+#### :man_technologist: Technologies
 The main technologies used to develop the project were:
 - [React](https://reactjs.org/)
 - [SWR](https://swr.vercel.app/)
@@ -76,25 +78,26 @@ The main technologies used to develop the project were:
 This project was bootstrapped with:
 - [create-react-app](https://github.com/facebook/create-react-app)
 
-### :runner: Getting Started
+#### :runner: Getting Started
 First, make sure you have **[Node](https://nodejs.org/en/)** and **[Yarn](https://yarnpkg.com/)**, then clone the project with:
 ```
 git clone https://github.com/danieljpgo/swr-poc.git
 ```
-With **[Yarn](https://yarnpkg.com/)**, install dependencies:
+
+With **[Yarn](https://yarnpkg.com/)**, access the project folder and install dependencies:
 ```
 yarn install
 ```
-Run the [JSON Server](https://github.com/typicode/json-server), for a fake REST API, execute:
+To start the server, run [JSON Server](https://github.com/typicode/json-server) with:
 ```
 yarn server
 ```
-In order to **start** the application in a development environment, execute:
+In order to start the application, execute:
 ```
 yarn start
 ```
 
-### :page_with_curl: License
+#### :page_with_curl: License
 This project is under the [MIT license](https://github.com/danieljpgo/posts-motion/blob/master/LICENSE).
 <div>Released in 2020.</div>
 

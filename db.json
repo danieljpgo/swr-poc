@@ -1,59 +1,19 @@
 {
   "users": [
     {
-      "email": "teste@gmail.com",
-      "name": "Daniel Jorge X y z",
+      "email": "lorem@gmail.com",
+      "name": "Lorem Ipsum A",
       "id": 1
     },
     {
-      "name": "Daniel Jorge",
-      "email": "teste@gmail.com",
+      "email": "daniel@gmail.com",
+      "name": "Daniel Jorge Pacheco",
       "id": 2
     },
     {
-      "name": "232",
-      "email": "2323@sdf.com",
+      "name": "Teste",
+      "email": "teste@gmail.com",
       "id": 3
-    },
-    {
-      "name": "kjbaskjb",
-      "email": "ljnsjnsd@gmail.com",
-      "id": 4
-    },
-    {
-      "name": "ouhaduosdhuo",
-      "email": "uihuid@gmail.com",
-      "id": 5
-    },
-    {
-      "name": "ljdnsjsndo",
-      "email": "ouhsduo@gmail.com",
-      "id": 6
-    },
-    {
-      "name": "jlsdnbkjdsbkj",
-      "email": "lnsjldnslj@gmail.com",
-      "id": 7
-    },
-    {
-      "name": ",sdn bkjbsdnjkdk",
-      "email": "jbnkjdskjd@gmial.com",
-      "id": 8
-    },
-    {
-      "name": "nbjdskjbjk",
-      "email": "bkjbdskjbds@gmail.com",
-      "id": 9
-    },
-    {
-      "name": "klsdmklmnsdlkmd",
-      "email": "sdokop@gmail.com",
-      "id": 10
-    },
-    {
-      "email": "ijdiosj@gmail.com",
-      "name": ",mds ms dlj",
-      "id": 11
     }
   ]
 }

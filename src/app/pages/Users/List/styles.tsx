@@ -8,6 +8,7 @@ export const Container = styled.div`
     height: 30vh;
     overflow-y: auto;
     display: grid;
+    grid-auto-rows: min-content;
     gap: ${(props) => props.theme.unit / 2}px;
     padding: ${(props) => props.theme.unit}px ${(props) => props.theme.unit * 0.75}px;
   }
