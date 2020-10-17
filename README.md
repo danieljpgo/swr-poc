@@ -1,22 +1,19 @@
-&nbsp;
 <div align="center" >
   <img
     alt="swr"
     title="swr"
     src=".github/swr-logo.png"
-    height="130px"
+    height="110px"
     />
   <img
     alt="react"
     title="react"
     src=".github/react-logo.png"
-    width="200px" />
+    width="180px" />
 </div>
 &nbsp;
 
 <h1> SWR - POC</h1>
-
----
 
 <p align="left">
    <a href="https://github.com/danieljpgo">
@@ -62,13 +59,13 @@
       width="640px" />
 </div>
 
-#### :memo: Project
+### :memo: Project
 ... :construction: under construction :construction:
 
-#### :pushpin: Topics
+### :pushpin: Topics
 ... :construction: under construction :construction:
 
-#### :man_technologist: Technologies
+### :man_technologist: Technologies
 The main technologies used to develop the project were:
 - [React](https://reactjs.org/)
 - [SWR](https://swr.vercel.app/)
@@ -79,7 +76,7 @@ The main technologies used to develop the project were:
 This project was bootstrapped with:
 - [create-react-app](https://github.com/facebook/create-react-app)
 
-#### :runner: Getting Started
+### :runner: Getting Started
 First, make sure you have **[Node](https://nodejs.org/en/)** and **[Yarn](https://yarnpkg.com/)**, then clone the project with:
 ```
 git clone https://github.com/danieljpgo/swr-poc.git
@@ -97,7 +94,7 @@ In order to **start** the application in a development environment, execute:
 yarn start
 ```
 
-#### :page_with_curl: License
+### :page_with_curl: License
 This project is under the [MIT license](https://github.com/danieljpgo/posts-motion/blob/master/LICENSE).
 <div>Released in 2020.</div>
 
