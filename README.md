@@ -65,7 +65,7 @@
 &nbsp;
 
 ## Project
-The idea of ​​this proof of concept, was to test a data fetch solution, which used cache strategies to solve data persistence and state management, however, SWR delivers much more functionality, ~~it's incredible~~.
+The idea of ​​this project, was to test a data fetch solution, which used cache strategies to solve data persistence and state management, however, SWR delivers much more functionality, ~~which is incredible~~.
 
 ## Features
 The following hook was implemented to create an abstraction of the **useSWR** hook:
@@ -77,7 +77,7 @@ Main use cases for the library are listed below:
    <img
       alt="exemple 1"
       title="exemple 1"
-      width="870px"
+      width="770px"
       src=".github/retry.gif"
    />
 </div>
@@ -88,7 +88,7 @@ Main use cases for the library are listed below:
    <img
       alt="exemple 2"
       title="exemple 2"
-      width="870px"
+      width="770px"
       src=".github/persist.gif"
    />
 </div>
@@ -99,7 +99,7 @@ Main use cases for the library are listed below:
    <img
       alt="exemple 3"
       title="exemple 3"
-      width="870px"
+      width="770px"
       src=".github/edit-persist.gif"
    />
 </div>
@@ -110,7 +110,7 @@ Main use cases for the library are listed below:
    <img
       alt="exemple 4"
       title="exemple 4"
-      width="870px"
+      width="770px"
       src=".github/create.gif"
    />
 </div>
@@ -128,21 +128,19 @@ This project was bootstrapped with:
 - [create-react-app](https://github.com/facebook/create-react-app)
 
 ## Getting Started
-First, make sure you have [Node](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/), then clone the project with:
+First of all, you may clone this project:
 ```
 git clone https://github.com/danieljpgo/swr-poc.git
 ```
-
-With [Yarn](https://yarnpkg.com/), access the project folder and install dependencies:
+Run the following scripts in order to execute the application:
 ```
+// install dependencies
 yarn install
-```
-To start the server, run [JSON Server](https://github.com/typicode/json-server) with:
-```
+
+// start the server
 yarn server
-```
-In order to start the application, execute:
-```
+
+// start the application
 yarn start
 ```
 
