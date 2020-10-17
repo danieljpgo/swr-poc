@@ -1,4 +1,103 @@
-# Getting Started with Create React App
+<p align="center">
+<img
+  alt="swr"
+  title="swr"
+  src=".github/swr-logo.png"
+  height="110px" 
+  />
+<img
+  alt="react"
+  title="react"
+  src=".github/react-logo.png"
+  width="200px" />
+</p>
+ &nbsp;
+
+<h1 align="left"> SWR - POC </h1>
+
+---
+
+<p align="left">
+   <a href="https://github.com/danieljpgo">
+      <img
+        alt="author"
+        src="https://img.shields.io/badge/author-danieljpgo-a1a1a1?style=flat&labelColor=000000"
+      />
+   </a>
+   <img
+      alt="languages"
+      src="https://img.shields.io/github/languages/count/danieljpgo/swr-poc?color=a1a1a1&style=flat&labelColor=000000"
+   />
+   <a href="https://github.com/danieljpgo/swr-poc/graphs/contributors">
+      <img
+        alt="contributors"
+        src="https://img.shields.io/github/stars/danieljpgo/swr-poc?color=a1a1a1&style=flat&labelColor=000000"/>
+   </a>
+    <a href="https://github.com/danieljpgo/swr-poc/network/members">
+      <img
+         alt="forks"
+         src="https://img.shields.io/github/forks/danieljpgo/swr-poc?color=a1a1a1&style=flat&labelColor=000000"/>
+   </a>
+     <img alt="License" src="https://img.shields.io/badge/license-MIT-a1a1a1?style=flat&labelColor=000000">
+</p>
+
+> A proof of concept of the <a href="https://vercel.com/">Vercel's</a> HTTP cache invalidation strategy <a href="https://swr.vercel.app/">SWR library</a>. :clipboard:
+
+----
+
+<p align="center">
+   <a href="#memo-project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#pushpin-topics">Topics</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#man_technologist-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#runner-getting-started">Getting Started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#page_with_curl-license">License</a>
+</p>
+
+#### :memo: Project
+---
+... :construction: under construction :construction:
+
+## :pushpin: Topics
+---
+... :construction: under construction :construction:
+
+## :man_technologist: Technologies
+---
+The main technologies used to develop the project were:
+... :construction: under construction :construction:
+- [React](https://reactjs.org/)
+- [Json Server](https://github.com/typicode/json-server)
+- [Typescript](https://www.typescriptlang.org/)
+
+## :runner: Getting Started
+---
+... :construction: under construction :construction:
+<!-- First, make sure you have **[Node](https://nodejs.org/en/)**, then clone the project with:
+```
+git clone https://github.com/danieljpgo/angular-material-poc.git
+```
+
+With  **[npm](https://nodejs.org/en/knowledge/getting-started/npm/what-is-npm/)**, install dependencies:
+```
+npm install
+```
+Run the [json server](https://github.com/typicode/json-server), for a fake REST API, execute:
+```
+npm run json-server
+```
+In order to **start** the application, execute:
+```
+ng serve
+``` -->
+
+## :page_with_curl: License
+This project is under the [MIT license](https://github.com/danieljpgo/swr-poc/blob/master/LICENSE).
+<div>Released in 2020.</div>
+
+Developed by [Daniel Jorge](https://github.com/danieljpgo)
+
+
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -43,4 +142,4 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To learn React, check out the [React documentation](https://reactjs.org/). -->
