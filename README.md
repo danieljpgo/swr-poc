@@ -43,21 +43,23 @@
 
 &nbsp;
 
-<p align="center">
+<div align="center">
    <a href="#memo-project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
    <a href="#pushpin-topics">Topics</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
    <a href="#man_technologist-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
    <a href="#runner-getting-started">Getting Started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
    <a href="#page_with_curl-license">License</a>
-</p>
-
-<h1 align="center">
+</div>
+<div align="center">
    <img
-      alt="SWR Preview"
-      title="SWR Preview"
-      src=".github/exemple.gif"
+      alt="SWR useFetch Hook"
+      title="SWR useFetch Hook"
+      width="970px"
+      src=".github/code.png"
    />
-</h1>
+</div>
+
+&nbsp;
 
 ## :memo: Project
 ... :construction: under construction :construction:
