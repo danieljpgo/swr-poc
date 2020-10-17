@@ -44,11 +44,11 @@
 &nbsp;
 
 <div align="center">
-   <a href="#memo-project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-   <a href="#pushpin-topics">Topics</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-   <a href="#man_technologist-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-   <a href="#runner-getting-started">Getting Started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-   <a href="#page_with_curl-license">License</a>
+   <a href="#project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#features">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#getting-started">Getting Started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#license">License</a>
 </div>
 <div align="center">
    <img
@@ -57,17 +57,66 @@
       width="970px"
       src=".github/code.png"
    />
+   <div>
+      <b>useFetch Hook</b>, responsible for the <s>magic</s>.
+   </div>
 </div>
 
 &nbsp;
 
-## :memo: Project
-... :construction: under construction :construction:
+## Project
+The idea of ​​this proof of concept, was to test a data fetch solution, which used cache strategies to solve data persistence and state management, however, SWR delivers much more functionality, ~~it's incredible~~.
 
-## :pushpin: Topics
-... :construction: under construction :construction:
+## Features
+The following hook was implemented to create an abstraction of the **useSWR** hook:
+- **useFetch Hook**
 
-## :man_technologist: Technologies
+Main use cases for the library are listed below:
+- **Revalidate on focus.**
+<div align="center">
+   <img
+      alt="exemple 1"
+      title="exemple 1"
+      width="870px"
+      src=".github/retry.gif"
+   />
+</div>
+&nbsp;
+
+- **Persisting request data using cache strategies.**
+<div align="center">
+   <img
+      alt="exemple 2"
+      title="exemple 2"
+      width="870px"
+      src=".github/persist.gif"
+   />
+</div>
+&nbsp;
+
+- **Editing the local route cache and related routes cache.**
+<div align="center">
+   <img
+      alt="exemple 3"
+      title="exemple 3"
+      width="870px"
+      src=".github/edit-persist.gif"
+   />
+</div>
+&nbsp;
+
+- **Adding data to local cache and on related route.**
+<div align="center">
+   <img
+      alt="exemple 4"
+      title="exemple 4"
+      width="870px"
+      src=".github/create.gif"
+   />
+</div>
+
+
+## Technologies
 The main technologies used to develop the project were:
 - [React](https://reactjs.org/)
 - [SWR](https://swr.vercel.app/)
@@ -78,13 +127,13 @@ The main technologies used to develop the project were:
 This project was bootstrapped with:
 - [create-react-app](https://github.com/facebook/create-react-app)
 
-## :runner: Getting Started
-First, make sure you have **[Node](https://nodejs.org/en/)** and **[Yarn](https://yarnpkg.com/)**, then clone the project with:
+## Getting Started
+First, make sure you have [Node](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/), then clone the project with:
 ```
 git clone https://github.com/danieljpgo/swr-poc.git
 ```
 
-With **[Yarn](https://yarnpkg.com/)**, access the project folder and install dependencies:
+With [Yarn](https://yarnpkg.com/), access the project folder and install dependencies:
 ```
 yarn install
 ```
@@ -97,8 +146,8 @@ In order to start the application, execute:
 yarn start
 ```
 
-## :page_with_curl: License
-This project is under the [MIT license](https://github.com/danieljpgo/posts-motion/blob/master/LICENSE).
+## License
+This project is under the [MIT license](https://github.com/danieljpgo/swr-poc/blob/master/LICENSE).
 <div>Released in 2020.</div>
 
 Make with ❤️ by [Daniel Jorge](https://github.com/danieljpgo)
