@@ -39,7 +39,7 @@
      <img alt="License" src="https://img.shields.io/badge/license-MIT-a1a1a1?style=flat&labelColor=000000">
 </p>
 
-> A proof of concept of the <a href="https://vercel.com/">Vercel's</a> HTTP cache invalidation strategy <a href="https://swr.vercel.app/">SWR library</a>. :clipboard:
+> A proof of concept of the <a href="https://vercel.com/">Vercel's</a> HTTP cache invalidation strategy <a href="https://swr.vercel.app/">SWR</a> library. :clipboard:
 
 &nbsp;
 
@@ -54,7 +54,7 @@
    <img
       alt="SWR useFetch Hook"
       title="SWR useFetch Hook"
-      width="970px"
+      width="870px"
       src=".github/code.png"
    />
    <div>
