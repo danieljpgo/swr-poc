@@ -149,3 +149,7 @@ This project is under the [MIT license](https://github.com/danieljpgo/swr-poc/bl
 <div>Released in 2020.</div>
 
 Make with ❤️ by [Daniel Jorge](https://github.com/danieljpgo)
+
+
+<!-- TODO -->
+<!-- [] testes para validar todas as funcionalidades para cada aplicação futura -->

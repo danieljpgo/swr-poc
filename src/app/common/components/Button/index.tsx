@@ -9,10 +9,11 @@ const Button = (props: Props) => {
   const { children, ...rest } = props;
 
   return (
+    // eslint-disable-next-line
     <Container {...rest}>
       {children}
     </Container>
-  )
-}
+  );
+};
 
 export default Button;

@@ -1,17 +1,17 @@
-import useSWR, { ConfigInterface } from 'swr';
-import api from '../../../common/services/api';
+import useSWR, { SWRConfiguration } from 'swr';
+import api from '../../services/api';
 
 const fetcher = (endpoint: string) => api
   .get(endpoint)
   .then((response) => response.data);
 
-const useFetch = <Data = any, Error = any>(url: string, config?: ConfigInterface) => {
+const useFetch = <Data = unknown, Error = unknown>(url: string, config?: SWRConfiguration) => {
   const {
     data,
     error,
     isValidating,
     mutate,
-    revalidate
+    revalidate,
   } = useSWR<Data, Error>(url, fetcher, config);
 
   return {
@@ -22,6 +22,6 @@ const useFetch = <Data = any, Error = any>(url: string, config?: ConfigInterface
     mutate,
     revalidate,
   };
-}
+};
 
 export default useFetch;

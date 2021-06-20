@@ -14,7 +14,7 @@ const Details = () => {
   const {
     data,
     isError,
-    isLoading
+    isLoading,
   } = useFetch<User>(`users/${params.id}`);
 
   function handleGoBack() {
@@ -30,17 +30,18 @@ const Details = () => {
         >
           back
         </Button>
-        {!isLoading ?
-          (<div>
-            <h4>{data?.name}</h4>
-            <div>{data?.email}</div>
-          </div>) :
-          (<LoadingMessage />)
-        }
+        {!isLoading
+          ? (
+            <div>
+              <h4>{data?.name}</h4>
+              <div>{data?.email}</div>
+            </div>
+          )
+          : (<LoadingMessage />)}
         {isError && (<ErrorMessage />)}
       </Content>
     </Container>
-  )
+  );
 };
 
 export default Details;

@@ -11,25 +11,24 @@ import { Container, Content } from './styles';
 
 const defaultUser: User = {
   name: '',
-  email: ''
-}
+  email: '',
+};
 
 const Users = () => {
   const {
     data,
     isError,
     isLoading,
-    mutate: mutateUsers
+    mutate: mutateUsers,
   } = useFetch<User[]>('users');
 
   const [userSelected, setUserSelected] = useState<User>(defaultUser);
 
   async function handleEditUser(userEdit: User, usersList: User[]) {
     const updateCachedUser = ({ name, email, id }: User) => (
-      mutateUsers((prev) => prev.map((user) => user.id === id
+      mutateUsers((prev) => prev?.map((user) => (user.id === id
         ? { ...user, email, name }
-        : user
-      ), false)
+        : user)), false)
     );
 
     const { email, name, id } = userEdit;
@@ -41,7 +40,7 @@ const Users = () => {
 
     const response = await api
       .put<User>(`/users/${id}`, { email, name })
-      .then((response) => response.data)
+      .then((res) => res.data)
       .catch((error) => alert(error));
 
     // In case of error in the PUT Request, the information added in
@@ -62,7 +61,7 @@ const Users = () => {
     const temporayId = Math.floor(Math.random() * -20000);
 
     // Add the new user to the "users" cache router
-    mutateUsers((prev) => [...prev, { ...user, id: temporayId }], false);
+    mutateUsers((prev) => [...prev!, { ...user, id: temporayId }], false);
 
     const newUser = await api
       .post<User>('/users', user)
@@ -71,18 +70,14 @@ const Users = () => {
 
     if (newUser) {
       // After making the call on the api, the new user's id
-      // will be updated on the global cache as the api returned 
-      mutateUsers((prev) => prev.map((user) => user.id === temporayId
+      // will be updated on the global cache as the api returned
+      mutateUsers((prev) => prev?.map((prevUser) => (prevUser.id === temporayId
         ? { ...user, id: newUser.id }
-        : user
-      ), false);
+        : prevUser)), false);
       mutateGlobal(`users/${newUser.id}`, newUser, false);
-
     } else {
       // In case of error it will be removed from the cache
-      mutateUsers((prev) => prev.filter((user) =>
-        user.id !== temporayId
-      ), false);
+      mutateUsers((prev) => prev?.filter((prevUser) => prevUser.id !== temporayId), false);
     }
   }
 
@@ -106,7 +101,7 @@ const Users = () => {
           onSubmit={(newUser) => handleSubmit(newUser, data)}
         />
         <List
-          users={!!data ? data : []}
+          users={data || []}
           onSelectUser={(user) => handleSelectUser(user)}
         >
           {isLoading && (<LoadingMessage />)}
@@ -114,7 +109,7 @@ const Users = () => {
         </List>
       </Content>
     </Container>
-  )
+  );
 };
 
 export default Users;

@@ -21,7 +21,7 @@ export const Container = styled.li<ContainerProps>`
     }
   }
 
-  ${(props => props.$loading && css`
+  ${((props) => props.$loading && css`
     pointer-events: none
   `)}
 `;

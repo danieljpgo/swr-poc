@@ -24,21 +24,22 @@ const List = (props: Props) => {
         {[...users].reverse().map((user) => (
           <Card
             key={user.id}
-            user={user}>
+            user={user}
+          >
             <Button
               type="button"
               disabled={!!user.id && user.id < 0}
               onClick={() => handleSelectUser(user)}
             >
               edit
-              </Button>
-          </Card>)
-        )}
+            </Button>
+          </Card>
+        ))}
         {children}
       </ul>
       <hr />
     </Container>
-  )
-}
+  );
+};
 
 export default List;

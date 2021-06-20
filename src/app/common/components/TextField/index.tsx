@@ -1,7 +1,7 @@
 import React, { InputHTMLAttributes } from 'react';
 import { Container } from './styles';
 
-interface Props extends InputHTMLAttributes<HTMLInputElement> { }
+type Props = InputHTMLAttributes<HTMLInputElement>;
 
 const TextField = (props: Props) => {
   const { id, ...rest } = props;
@@ -11,9 +11,12 @@ const TextField = (props: Props) => {
       <label htmlFor={id}>
         Name
       </label>
-      <input {...rest} />
+      <input
+          // eslint-disable-next-line
+      {...rest} 
+      />
     </Container>
-  )
-}
+  );
+};
 
 export default TextField;

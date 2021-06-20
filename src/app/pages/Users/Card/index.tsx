@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container } from './styles';
 import { Link } from 'react-router-dom';
+import { Container } from './styles';
 import { User } from '../../../common/types/user';
 
 interface Props {
@@ -20,7 +20,7 @@ const Card = (props: Props) => {
         <Link
           to={`/users/${id}`}
           data-userid={id}
-          style={id && id < 0 ? { pointerEvents: "none" } : {}}
+          style={id && id < 0 ? { pointerEvents: 'none' } : {}}
         >
           {name}
         </Link>
@@ -28,7 +28,7 @@ const Card = (props: Props) => {
       </div>
       {children}
     </Container>
-  )
-}
+  );
+};
 
 export default Card;

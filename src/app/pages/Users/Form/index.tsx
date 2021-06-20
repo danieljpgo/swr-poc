@@ -2,7 +2,7 @@ import React, {
   useState,
   FormEvent,
   ChangeEvent,
-  useEffect
+  useEffect,
 } from 'react';
 import Button from '../../../common/components/Button';
 import TextField from '../../../common/components/TextField';
@@ -16,8 +16,8 @@ interface Props {
 
 const defaultUser: User = {
   name: '',
-  email: ''
-}
+  email: '',
+};
 
 const Form = (props: Props) => {
   const { user, onSubmit } = props;
@@ -25,11 +25,11 @@ const Form = (props: Props) => {
 
   useEffect(() => {
     if (user) setForm(user);
-  }, [user])
+  }, [user]);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>, user: User) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>, saveUser: User) {
     event.preventDefault();
-    onSubmit(user);
+    onSubmit(saveUser);
     setForm(defaultUser);
   }
 
@@ -58,11 +58,12 @@ const Form = (props: Props) => {
       />
       <Button
         type="submit"
-        disabled={!name || !email}>
+        disabled={!name || !email}
+      >
         submit
       </Button>
     </Container>
-  )
-}
+  );
+};
 
 export default Form;
