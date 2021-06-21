@@ -1,16 +1,15 @@
-import React from 'react';
+import * as React from 'react';
 import { Button } from '@geist-ui/react';
-import { Container } from './styles';
 import { User } from '../../../common/types/user';
 import Card from './UserCard';
 
-interface Props {
+type ListProps = {
   children: React.ReactNode;
   users: User[];
   onSelectUser: (user: User) => void;
-}
+};
 
-const List = (props: Props) => {
+const List = (props: ListProps) => {
   const { users, children, onSelectUser } = props;
 
   function handleSelectUser(user: User) {
@@ -18,26 +17,22 @@ const List = (props: Props) => {
   }
 
   return (
-    <Container>
-      <hr />
-      <ul>
-        {[...users].reverse().map((user) => (
-          <Card
-            key={user.id}
-            user={user}
+    <ul style={{ overflowY: 'auto' }}>
+      {[...users].reverse().map((user) => (
+        <Card
+          key={user.id}
+          user={user}
+        >
+          <Button
+            disabled={!!user.id && user.id < 0}
+            onClick={() => handleSelectUser(user)}
           >
-            <Button
-              disabled={!!user.id && user.id < 0}
-              onClick={() => handleSelectUser(user)}
-            >
-              edit
-            </Button>
-          </Card>
-        ))}
-        {children}
-      </ul>
-      <hr />
-    </Container>
+            edit
+          </Button>
+        </Card>
+      ))}
+      {children}
+    </ul>
   );
 };
 

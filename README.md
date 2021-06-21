@@ -121,7 +121,7 @@ The main technologies used to develop the project were:
 - [React](https://reactjs.org/)
 - [SWR](https://swr.vercel.app/)
 - [JSON Server](https://github.com/typicode/json-server)
-- [Styled Component](https://styled-components.com/)
+<!-- - [Styled Component](https://styled-components.com/) -->
 - [Typescript](https://www.typescriptlang.org/)
 
 This project was bootstrapped with:

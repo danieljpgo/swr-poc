@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Text } from '@geist-ui/react';
 import { User } from '../../../../common/types/user';

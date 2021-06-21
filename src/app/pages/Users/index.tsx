@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { mutate as mutateGlobal } from 'swr';
-import LoadingMessage from '../../common/components/LoadingMessage';
-import ErrorMessage from '../../common/components/ErrorMessage';
+import { Page, Text } from '@geist-ui/react';
 import { useFetch } from '../../common/utils/hooks/useFetch';
 import { User } from '../../common/types/user';
 import { api } from '../../common/services/api';
 import Form from './Form';
 import List from './List';
-import { Container, Content } from './styles';
 
 const defaultUser: User = {
   name: '',
@@ -94,8 +92,8 @@ const Users = () => {
   }
 
   return (
-    <Container>
-      <Content>
+    <Page>
+      <Page.Content>
         <Form
           user={userSelected}
           onSubmit={(newUser) => handleSubmit(newUser, data)}
@@ -104,11 +102,11 @@ const Users = () => {
           users={data || []}
           onSelectUser={(user) => handleSelectUser(user)}
         >
-          {isLoading && (<LoadingMessage />)}
-          {isError && (<ErrorMessage />)}
+          {isLoading && (<Text>loading...</Text>)}
+          {isError && (<Text>Error on fetch data</Text>)}
         </List>
-      </Content>
-    </Container>
+      </Page.Content>
+    </Page>
   );
 };
 
