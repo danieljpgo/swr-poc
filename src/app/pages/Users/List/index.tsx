@@ -1,8 +1,8 @@
 import React from 'react';
+import { Button } from '@geist-ui/react';
 import { Container } from './styles';
 import { User } from '../../../common/types/user';
-import Card from '../Card';
-import Button from '../../../common/components/Button';
+import Card from './UserCard';
 
 interface Props {
   children: React.ReactNode;
@@ -27,7 +27,6 @@ const List = (props: Props) => {
             user={user}
           >
             <Button
-              type="button"
               disabled={!!user.id && user.id < 0}
               onClick={() => handleSelectUser(user)}
             >

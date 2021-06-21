@@ -1,9 +1,7 @@
-import React from 'react';
+import { Text } from '@geist-ui/react';
 
-const LoadingMessage: React.FC = () => (
-  <div>
-    <h4>Loading ...</h4>
-  </div>
+const LoadingMessage = () => (
+  <Text>loading ...</Text>
 );
 
 export default LoadingMessage;

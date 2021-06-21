@@ -1,23 +1,14 @@
-import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Users from '../pages/Users';
-import Details from '../pages/Details';
+import UserDetails from '../pages/UserDetails';
 
 const Routes = () => (
   <Switch>
-    <Route
-      exact
-      path="/users"
-      key="users"
-    >
+    <Route exact path="/users" key="users">
       <Users />
     </Route>
-    <Route
-      exact
-      path="/users/:id"
-      key="details"
-    >
-      <Details />
+    <Route exact path="/users/:id" key="details">
+      <UserDetails />
     </Route>
     <Redirect to="/users" />
   </Switch>

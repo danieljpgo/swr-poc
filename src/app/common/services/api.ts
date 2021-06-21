@@ -1,7 +1,9 @@
 import axios from 'axios';
 
-const api = axios.create({
+export const api = axios.create({
   baseURL: 'http://localhost:3333',
 });
 
-export default api;
+export const fetcher = (endpoint: string) => api
+  .get(endpoint)
+  .then((response) => response.data);
