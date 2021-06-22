@@ -65,13 +65,17 @@
 &nbsp;
 
 ## Project
+
 The idea of ​​this project, was to test a data fetch solution, which used cache strategies to solve data persistence and state management, however, SWR delivers much more functionality, ~~which is incredible~~.
 
 ## Features
+
 The following hook was implemented to create an abstraction of the **useSWR** hook:
+
 - **useFetch Hook**
 
 Main use cases for the library are listed below:
+
 - **Revalidate on focus.**
 <div align="center">
    <img
@@ -115,9 +119,10 @@ Main use cases for the library are listed below:
    />
 </div>
 
-
 ## Technologies
+
 The main technologies used to develop the project were:
+
 - [React](https://reactjs.org/)
 - [SWR](https://swr.vercel.app/)
 - [JSON Server](https://github.com/typicode/json-server)
@@ -125,14 +130,19 @@ The main technologies used to develop the project were:
 - [Typescript](https://www.typescriptlang.org/)
 
 This project was bootstrapped with:
+
 - [create-react-app](https://github.com/facebook/create-react-app)
 
 ## Getting Started
+
 First of all, you may clone this project:
+
 ```
 git clone https://github.com/danieljpgo/swr-poc.git
 ```
+
 Run the following scripts in order to execute the application:
+
 ```
 // install dependencies
 yarn install
@@ -145,12 +155,15 @@ yarn start
 ```
 
 ## License
+
 This project is under the [MIT license](https://github.com/danieljpgo/swr-poc/blob/master/LICENSE).
+
 <div>Released in 2020.</div>
 
 Make with ❤️ by [Daniel Jorge](https://github.com/danieljpgo)
 
-
 <!-- TODO -->
 <!-- [] testes para validar todas as funcionalidades para cada aplicação futura -->
 <!-- [] atualizar react router dom -->
+<!-- toaster global para ações de sucesso e falha -->
+<!-- corrigir nomes -->

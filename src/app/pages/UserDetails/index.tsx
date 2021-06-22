@@ -1,4 +1,4 @@
-import { useHistory, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import {
   Page,
   Card,
@@ -9,21 +9,18 @@ import { useFetch } from '../../common/utils/hooks/useFetch';
 import { User } from '../../common/types/user';
 
 const UserDetails = () => {
-  const history = useHistory();
-  const params = useParams<{ id: string }>();
-  const { data, isError, isLoading } = useFetch<User>(`users/${params.id}`);
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const { data: user, isError, isLoading } = useFetch<User>(`users/${id}`);
 
   function handleGoBack() {
-    history.goBack();
+    navigate('..');
   }
 
   return (
     <Page>
       <Page.Header>
-        <Button
-          size="mini"
-          onClick={handleGoBack}
-        >
+        <Button size="mini" onClick={handleGoBack}>
           back
         </Button>
       </Page.Header>
@@ -32,10 +29,10 @@ const UserDetails = () => {
           ? (
             <Card>
               <Card.Content>
-                <Text h4>{data?.name}</Text>
+                <Text h4>{user?.name}</Text>
               </Card.Content>
               <Card.Footer>
-                <Text small>{data?.email}</Text>
+                <Text small>{user?.email}</Text>
               </Card.Footer>
             </Card>
           )

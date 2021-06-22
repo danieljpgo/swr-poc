@@ -2,28 +2,25 @@ import * as React from 'react';
 import { Input, Text, Button } from '@geist-ui/react';
 import { User } from '../../../common/types/user';
 
-interface FormProps {
+type FormProps = {
   user: User;
   onSubmit: (user: User) => void;
-}
-
-const defaultUser: User = {
-  name: '',
-  email: '',
 };
 
 const Form = (props: FormProps) => {
   const { user, onSubmit } = props;
-  const [form, setForm] = React.useState<User>(defaultUser);
+  const [form, setForm] = React.useState<User>({ name: '', email: '' });
 
   React.useEffect(() => {
-    if (user) setForm(user);
+    if (user) {
+      setForm(user);
+    }
   }, [user]);
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>, saveUser: User) {
     event.preventDefault();
     onSubmit(saveUser);
-    setForm(defaultUser);
+    setForm({ name: '', email: '' });
   }
 
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -31,7 +28,7 @@ const Form = (props: FormProps) => {
     setForm((prev) => ({ ...prev, [name]: value }));
   }
 
-  const { name, email } = form;
+  const isDisabled = !form.name || !form.email;
 
   return (
     <form onSubmit={(e) => handleSubmit(e, form)}>
@@ -39,7 +36,7 @@ const Form = (props: FormProps) => {
         id="name"
         name="name"
         type="text"
-        value={name}
+        value={form.name}
         onChange={handleInputChange}
       >
         <Text>name</Text>
@@ -48,12 +45,12 @@ const Form = (props: FormProps) => {
         id="email"
         type="email"
         name="email"
-        value={email}
+        value={form.email}
         onChange={handleInputChange}
       >
         <Text>email</Text>
       </Input>
-      <Button htmlType="submit" disabled={!name || !email}>
+      <Button htmlType="submit" disabled={isDisabled}>
         submit
       </Button>
     </form>

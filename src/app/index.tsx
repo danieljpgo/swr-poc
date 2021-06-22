@@ -1,6 +1,6 @@
 import { BrowserRouter } from 'react-router-dom';
-import { SWRConfig } from 'swr';
 import { GeistProvider, CssBaseline } from '@geist-ui/react';
+import { SWRConfig } from 'swr';
 import Routes from './routes';
 
 const App = () => (

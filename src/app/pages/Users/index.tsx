@@ -73,18 +73,18 @@ const Users = () => {
         ? { ...user, id: newUser.id }
         : prevUser)), false);
       mutateGlobal(`users/${newUser.id}`, newUser, false);
-    } else {
-      // In case of error it will be removed from the cache
-      mutateUsers((prev) => prev?.filter((prevUser) => prevUser.id !== temporayId), false);
+      return;
     }
+    // In case of error it will be removed from the cache
+    mutateUsers((prev) => prev?.filter((prevUser) => prevUser.id !== temporayId), false);
   }
 
   function handleSubmit(userSubmitted: User, users: User[] | undefined) {
     if (userSubmitted.id && users) {
       handleEditUser(userSubmitted, users);
-    } else {
-      handleCreateUser(userSubmitted);
+      return;
     }
+    handleCreateUser(userSubmitted);
   }
 
   function handleSelectUser(user: User) {

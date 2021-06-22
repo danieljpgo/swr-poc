@@ -1,17 +1,13 @@
-import { Switch, Route, Redirect } from 'react-router-dom';
-import Users from '../pages/Users';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import UserDetails from '../pages/UserDetails';
+import Users from '../pages/Users';
 
-const Routes = () => (
-  <Switch>
-    <Route exact path="/users" key="users">
-      <Users />
-    </Route>
-    <Route exact path="/users/:id" key="details">
-      <UserDetails />
-    </Route>
-    <Redirect to="/users" />
-  </Switch>
+const Routers = () => (
+  <Routes>
+    <Route key="users" path="users" element={<Users />} />
+    <Route key="details" path="users/:id" element={<UserDetails />} />
+    <Route path="/*" element={<Navigate to="users" />} />
+  </Routes>
 );
 
-export default Routes;
+export default Routers;
