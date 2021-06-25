@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { mutate as mutateGlobal } from 'swr';
-import { Page, Text } from '@geist-ui/react';
+import {
+  Card, Divider, Page, Pagination, Text,
+} from '@geist-ui/react';
 import { useFetch } from '../../common/utils/hooks/useFetch';
 import { User } from '../../common/types/user';
 import { api } from '../../common/services/api';
@@ -94,17 +96,26 @@ const Users = () => {
   return (
     <Page>
       <Page.Content>
-        <Form
-          user={userSelected}
-          onSubmit={(newUser) => handleSubmit(newUser, data)}
-        />
-        <List
-          users={data || []}
-          onSelectUser={(user) => handleSelectUser(user)}
-        >
-          {isLoading && (<Text>loading...</Text>)}
-          {isError && (<Text>Error on fetch data</Text>)}
-        </List>
+        <Card shadow style={{ maxWidth: '532px' }}>
+          <Form
+            user={userSelected}
+            onSubmit={(newUser) => handleSubmit(newUser, data)}
+          />
+          <Divider />
+          <List
+            users={data || []}
+            onSelectUser={(user) => handleSelectUser(user)}
+          >
+            {isLoading && (<Text>loading...</Text>)}
+            {isError && (<Text>Error on fetch data</Text>)}
+          </List>
+          <Pagination
+            count={2}
+            initialPage={1}
+            limit={5}
+            // onChange={handlePage}
+          />
+        </Card>
       </Page.Content>
     </Page>
   );

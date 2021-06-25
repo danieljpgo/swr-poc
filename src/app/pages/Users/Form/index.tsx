@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { Input, Text, Button } from '@geist-ui/react';
+import {
+  Input, Text, Button, Card,
+} from '@geist-ui/react';
 import { User } from '../../../common/types/user';
 
 type FormProps = {

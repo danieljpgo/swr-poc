@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Button } from '@geist-ui/react';
+import { Table } from '@geist-ui/react';
 import { User } from '../../../common/types/user';
-import Card from './UserCard';
+// import Card from './Card';
 
 type ListProps = {
   children: React.ReactNode;
@@ -17,22 +17,29 @@ const List = (props: ListProps) => {
   }
 
   return (
-    <ul style={{ overflowY: 'auto' }}>
-      {[...users].reverse().map((user) => (
-        <Card
-          key={user.id}
-          user={user}
-        >
-          <Button
-            disabled={!!user.id && user.id < 0}
-            onClick={() => handleSelectUser(user)}
-          >
-            edit
-          </Button>
-        </Card>
-      ))}
-      {children}
-    </ul>
+    <Table data={[]}>
+      <Table.Column prop="id" label="ID" width={180} />
+      <Table.Column prop="name" label="Name" width={180} />
+      <Table.Column prop="email" label="Email" width={110} />
+      <Table.Column prop="complete" label="Complete" width={50} />
+      <Table.Column prop="actions" label="Actions" />
+    </Table>
+  // <ul style={{ overflowY: 'auto' }}>
+  //   {[...users].reverse().map((user) => (
+  //     <Card
+  //       key={user.id}
+  //       user={user}
+  //     >
+  //       <Button
+  //         disabled={!!user.id && user.id < 0}
+  //         onClick={() => handleSelectUser(user)}
+  //       >
+  //         edit
+  //       </Button>
+  //     </Card>
+  //   ))}
+  //   {children}
+  // </ul>
   );
 };
 
