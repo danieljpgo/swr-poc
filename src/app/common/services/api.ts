@@ -6,4 +6,8 @@ export const api = axios.create({
 
 export const fetcher = (endpoint: string) => api
   .get(endpoint)
-  .then((response) => response.data);
+  .then((response) => response.data)
+  .catch((error) => error);
+
+// @TODO Error info
+// https://swr.vercel.app/docs/error-handling#status-code-and-error-object

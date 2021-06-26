@@ -8,7 +8,7 @@ import { User } from '../../common/types/user';
 const UserDetails = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const { data: user, isError, isLoading } = useFetch<User>(`users/${id}`);
+  const { data: user, state } = useFetch<User>(`users/${id}`);
 
   function handleGoBack() {
     navigate(-1);
@@ -21,13 +21,13 @@ const UserDetails = () => {
       </Button>
       <Card>
         <Card.Content>
-          <Text h4>{isLoading ? <Spinner /> : user?.name}</Text>
+          <Text h4>{state === 'pending' ? <Spinner /> : user?.name}</Text>
         </Card.Content>
         <Card.Content>
-          <Text small>{isLoading ? <Spinner /> : user?.email}</Text>
+          <Text small>{state === 'pending' ? <Spinner /> : user?.email}</Text>
         </Card.Content>
       </Card>
-      {isError && (
+      {state === 'error' && (
         <Text h4>
           Error on fetching that data.
           <Text p>
