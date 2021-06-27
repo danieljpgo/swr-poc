@@ -2,13 +2,12 @@ import { useNavigate, useParams } from 'react-router-dom';
 import {
   Card, Text, Button, Spinner,
 } from '@geist-ui/react';
-import { useFetch } from '../../common/utils/hooks/useFetch';
-import { User } from '../../common/types/user';
+import { useUserDetails } from '../../main/services/hooks';
 
 const UserDetails = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const { data: user, state } = useFetch<User>(`users/${id}`);
+  const { data: user, state } = useUserDetails(id);
 
   function handleGoBack() {
     navigate(-1);

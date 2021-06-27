@@ -1,5 +1,5 @@
 import useSWR, { Key, SWRConfiguration } from 'swr';
-import { fetcher } from '../../services/api';
+import { fetcher } from '../../../main/services/api';
 
 type SWRState =
 | 'idle'

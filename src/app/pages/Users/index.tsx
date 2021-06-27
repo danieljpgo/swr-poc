@@ -3,11 +3,11 @@ import { mutate as mutateGlobal } from 'swr';
 import {
   Card, Divider, Page, Pagination, Text,
 } from '@geist-ui/react';
-import { useFetch } from '../../common/utils/hooks/useFetch';
 import { User } from '../../common/types/user';
-import { api } from '../../common/services/api';
+import { api } from '../../main/services/api';
 import Form from './Form';
 import List from './List';
+import { useUsers } from '../../main/services/hooks';
 
 const defaultUser: User = {
   name: '',
@@ -16,11 +16,10 @@ const defaultUser: User = {
 
 const Users = () => {
   const {
-    data,
-    isError,
-    isLoading,
+    data: users,
+    state,
     mutate: mutateUsers,
-  } = useFetch<User[]>('users');
+  } = useUsers();
 
   const [userSelected, setUserSelected] = useState<User>(defaultUser);
 
@@ -81,9 +80,9 @@ const Users = () => {
     mutateUsers((prev) => prev?.filter((prevUser) => prevUser.id !== temporayId), false);
   }
 
-  function handleSubmit(userSubmitted: User, users: User[] | undefined) {
-    if (userSubmitted.id && users) {
-      handleEditUser(userSubmitted, users);
+  function handleSubmit(userSubmitted: User, usersList: User[] | undefined) {
+    if (userSubmitted.id && usersList) {
+      handleEditUser(userSubmitted, usersList);
       return;
     }
     handleCreateUser(userSubmitted);
@@ -99,15 +98,15 @@ const Users = () => {
         <Card shadow style={{ maxWidth: '532px' }}>
           <Form
             user={userSelected}
-            onSubmit={(newUser) => handleSubmit(newUser, data)}
+            onSubmit={(newUser) => handleSubmit(newUser, users)}
           />
           <Divider />
           <List
-            users={data || []}
+            users={users || []}
             onSelectUser={(user) => handleSelectUser(user)}
           >
-            {isLoading && (<Text>loading...</Text>)}
-            {isError && (<Text>Error on fetch data</Text>)}
+            {state === 'pending' && (<Text>loading...</Text>)}
+            {state === 'error' && (<Text>Error on fetch data</Text>)}
           </List>
           <Pagination
             count={2}
