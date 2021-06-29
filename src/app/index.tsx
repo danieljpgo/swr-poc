@@ -1,12 +1,16 @@
 import { GeistProvider, CssBaseline } from '@geist-ui/react';
 import { SWRProvider } from './common/utils/providers/SWRProvider';
-import Router from './router';
+import Navigation from './main/layout/Navigation';
+import Router from './main/router';
+import './styles/global.css';
 
 const App = () => (
   <GeistProvider>
     <CssBaseline />
     <SWRProvider>
-      <Router />
+      <Navigation>
+        <Router />
+      </Navigation>
     </SWRProvider>
   </GeistProvider>
 );

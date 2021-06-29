@@ -1,8 +1,11 @@
 import {
-  Routes, Route, Navigate, BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  BrowserRouter,
 } from 'react-router-dom';
-import Details from '../pages/Details';
-import Users from '../pages/Users';
+import Details from '../../pages/Details';
+import Users from '../../pages/Users';
 
 const Router = () => (
   <BrowserRouter>

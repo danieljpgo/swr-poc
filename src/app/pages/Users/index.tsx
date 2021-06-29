@@ -39,7 +39,7 @@ const Users = () => {
 
     const response = await api
       .put<User>(`/users/${id}`, { email, name })
-      .then((res) => res.data)
+      .then((res) => res)
       .catch((error) => alert(error));
 
     // In case of error in the PUT Request, the information added in
@@ -64,7 +64,7 @@ const Users = () => {
 
     const newUser = await api
       .post<User>('/users', user)
-      .then((response) => response.data)
+      .then((response) => response)
       .catch((error) => alert(error));
 
     if (newUser) {
@@ -93,30 +93,33 @@ const Users = () => {
   }
 
   return (
-    <Page>
-      <Page.Content>
-        <Card shadow style={{ maxWidth: '532px' }}>
-          <Form
-            user={userSelected}
-            onSubmit={(newUser) => handleSubmit(newUser, users)}
-          />
-          <Divider />
-          <List
-            users={users || []}
-            onSelectUser={(user) => handleSelectUser(user)}
-          >
-            {state === 'pending' && (<Text>loading...</Text>)}
-            {state === 'error' && (<Text>Error on fetch data</Text>)}
-          </List>
-          <Pagination
-            count={2}
-            initialPage={1}
-            limit={5}
-            // onChange={handlePage}
-          />
-        </Card>
-      </Page.Content>
-    </Page>
+    <div style={{
+      display: 'grid',
+      height: '100vh',
+      placeContent: 'center',
+      gridTemplateColumns: '532px',
+    }}
+    >
+      <Card>
+        <Form
+          user={userSelected}
+          onSubmit={(newUser) => handleSubmit(newUser, users)}
+        />
+        <Divider />
+        <List
+          users={users || []}
+          onSelectUser={(user) => handleSelectUser(user)}
+        >
+          {state === 'pending' && (<Text>loading...</Text>)}
+          {state === 'error' && (<Text>Error on fetch data</Text>)}
+        </List>
+        <Pagination
+          count={2}
+          initialPage={1}
+          limit={5}
+        />
+      </Card>
+    </div>
   );
 };
 

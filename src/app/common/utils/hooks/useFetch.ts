@@ -1,5 +1,5 @@
 import useSWR, { Key, SWRConfiguration } from 'swr';
-import { fetcher } from '../../../main/services/api';
+import { api } from '../../../main/services/api';
 
 type SWRState =
 | 'idle'
@@ -32,7 +32,7 @@ export const useFetch = <Data = unknown, Error = unknown>(
     mutate,
     revalidate,
     isValidating,
-  } = useSWR<Data, Error>(endpoint, fetcher, config);
+  } = useSWR<Data, Error>(endpoint, api.get, config);
 
   const state: SWRState = fetchState(Boolean(data), Boolean(error), isValidating);
 
@@ -51,26 +51,5 @@ export const useFetch = <Data = unknown, Error = unknown>(
 // @TODO useSWRInfinity
 
 // https://swr.vercel.app/docs/error-handling#error-retry
-
-// const state = {
-//   idle: 'idle',
-//   pending: 'pending',
-//   success: 'success',
-//   error: 'error',
-//   retrying: 'retrying',
-//   revalidating: 'revalidating',
-//   error_stale: 'error_stale',
-//   retrying_stale: 'retrying_stale',
-// } as const;
-
-// (data = 0, error = 0, isValidating = 0): idle
-// (data = 0, error = 0, isValidating = 1): pending
-// (data = 1, error = 0, isValidating = 0): success
-// (data = 0, error = 1, isValidating = 0): error
-// (data = 0, error = 1, isValidating = 1): retrying
-// (data = 1, error = 0, isValidating = 1): revalidating
-// (data = 1, error = 1, isValidating = 0): error_stale
-// (data = 1, error = 1, isValidating = 1): retrying_stale
-
 // https://github.com/vercel/swr/issues/141
 // https://twitter.com/estejs/status/1401629488643985414

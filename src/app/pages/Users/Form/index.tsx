@@ -1,7 +1,5 @@
 import * as React from 'react';
-import {
-  Input, Text, Button, Card,
-} from '@geist-ui/react';
+import { Input, Button, Textarea } from '@geist-ui/react';
 import { User } from '../../../common/types/user';
 
 type FormProps = {
@@ -25,7 +23,7 @@ const Form = (props: FormProps) => {
     setForm({ name: '', email: '' });
   }
 
-  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     const { name, value } = event.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   }
@@ -33,28 +31,57 @@ const Form = (props: FormProps) => {
   const isDisabled = !form.name || !form.email;
 
   return (
-    <form onSubmit={(e) => handleSubmit(e, form)}>
+
+    <form
+      style={{
+        gap: '21.333px',
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+      }}
+      onSubmit={(e) => handleSubmit(e, form)}
+    >
       <Input
         id="name"
         name="name"
         type="text"
+        width="100%"
+        placeholder="Name"
         value={form.name}
         onChange={handleInputChange}
-      >
-        <Text>name</Text>
-      </Input>
+      />
       <Input
         id="email"
         type="email"
         name="email"
+        width="100%"
+        placeholder="Email"
         value={form.email}
         onChange={handleInputChange}
+      />
+      <div style={{
+        gap: '21.333px',
+        display: 'grid',
+        alignItems: 'self-end',
+        gridColumn: 'span 2',
+        gridTemplateColumns: '5fr 1fr',
+      }}
       >
-        <Text>email</Text>
-      </Input>
-      <Button htmlType="submit" disabled={isDisabled}>
-        submit
-      </Button>
+        <Textarea
+          id="bio"
+          name="bio"
+          placeholder="Bio"
+          minHeight="unset"
+          value={form.email}
+          onChange={handleInputChange}
+        />
+        <Button
+          size="small"
+          htmlType="submit"
+          disabled={isDisabled}
+        >
+          submit
+        </Button>
+      </div>
     </form>
   );
 };

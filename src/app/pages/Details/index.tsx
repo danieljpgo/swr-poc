@@ -1,6 +1,11 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import {
-  Card, Text, Button, Spinner,
+  Text,
+  Button,
+  Spinner,
+  Fieldset,
+  Divider,
+  Spacer,
 } from '@geist-ui/react';
 import { useUserDetails } from '../../main/services/hooks';
 
@@ -10,31 +15,51 @@ const UserDetails = () => {
   const { data: user, state } = useUserDetails(id);
 
   function handleGoBack() {
-    navigate(-1);
+    navigate('..');
   }
 
   return (
-    <div style={{ display: 'grid', placeContent: 'center' }}>
-      <Button size="mini" onClick={handleGoBack}>
-        back
-      </Button>
-      <Card>
-        <Card.Content>
-          <Text h4>{state === 'pending' ? <Spinner /> : user?.name}</Text>
-        </Card.Content>
-        <Card.Content>
-          <Text small>{state === 'pending' ? <Spinner /> : user?.email}</Text>
-        </Card.Content>
-      </Card>
-      {state === 'error' && (
-        <Text h4>
-          Error on fetching that data.
-          <Text p>
-            after a few seconds, it will be tried to fetch the information
-            again.
-          </Text>
-        </Text>
-      )}
+    <div style={{
+      display: 'grid',
+      height: '100vh',
+      placeContent: 'center',
+      gridAutoRows: 'min-content',
+      gridTemplateColumns: '532px',
+    }}
+    >
+      <div style={{ minHeight: '243.61px' }}>
+        <Button style={{ width: 'min-content' }} size="small" onClick={handleGoBack}>
+          back
+        </Button>
+        <Spacer />
+        {state === 'error' ? (
+          <Fieldset>
+            <Fieldset.Content>
+              <Fieldset.Title>Error on fetching data.</Fieldset.Title>
+            </Fieldset.Content>
+            <Divider y={0} />
+            <Fieldset.Content>
+              <Text p>
+                After a few seconds, it will be tried to fetch the information
+                again.
+              </Text>
+            </Fieldset.Content>
+          </Fieldset>
+        ) : (
+          <Fieldset>
+            <Fieldset.Content>
+              <Fieldset.Title>{state === 'pending' ? <Spinner style={{ minHeight: '30px' }} /> : user?.name}</Fieldset.Title>
+            </Fieldset.Content>
+            <Divider y={0} />
+            <Fieldset.Content>
+              {state === 'pending' ? <Spinner /> : <Text p>BIO</Text>}
+            </Fieldset.Content>
+            <Fieldset.Footer>
+              {state === 'pending' ? <Spinner /> : <Text small>{user?.email}</Text>}
+            </Fieldset.Footer>
+          </Fieldset>
+        )}
+      </div>
     </div>
   );
 };
